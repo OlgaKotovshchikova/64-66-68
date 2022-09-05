@@ -31,17 +31,9 @@ namespace _64_66_68
         N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"*/
         static void TaskSixtyfour()
         {
-            try
-            {
-                Console.WriteLine("Введите N: ");
-                int N = Convert.ToInt32(Console.ReadLine());
-                PrintNumbersFromNtoOne(N);
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            
+            Console.WriteLine("Введите N: ");
+            int N = Convert.ToInt32(Console.ReadLine());
+            PrintNumbersFromNtoOne(N);
         }
         static void PrintNumbersFromNtoOne(int N, int n = 1)
         {
