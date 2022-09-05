@@ -13,9 +13,9 @@ namespace _64_66_68
                 case 64:
                     TaskSixtyfour();
                     break;
-              /*  case 66:
+                case 66:
                     TaskSixtysix();
-                    break;*/
+                    break;
                 case 58:
                     TaskSixtyeight();
                     break;
@@ -45,29 +45,35 @@ namespace _64_66_68
 
         #region Задача 66
         /*Задайте значения M и N.
-        Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
-        M = 1; N = 15 -> 120
-        M = 4; N = 8. -> 30*//*
+        Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.*/
+        /*M = 1; N = 15 -> 120
+        M = 4; N = 8. -> 30*/
         static void TaskSixtysix()
         {
             Console.WriteLine("Введите M: ");
             int M = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите N: ");
             int N = Convert.ToInt32(Console.ReadLine());
-            *//*int sum = 0;*//*
-            if (M < N)
+            if (M < N) PrintNumbersFromMtoN(N, M);
+            else  Console.WriteLine("M должно быть меньше N");
+            int result = SumNumbersFromMtoN(N, M);
+            Console.WriteLine();
+            Console.WriteLine(result);
+
+            static void PrintNumbersFromMtoN(int N, int M)
             {
-                void PrintSumNumbersFromMtoN(int N, int M)
-                {
-                    if (N < M) return;
-                    PrintSumNumbersFromMtoN(N - 1, M);
-                    Console.Write(N + " ");
-                }
-                PrintSumNumbersFromMtoN(N, M);
+                if (N < M) return;
+                PrintNumbersFromMtoN(N - 1, M);
+                Console.Write(N + " ");
             }
-            else Console.WriteLine("Первое число M должно быть меньше второго числа N. Введите заново.");
-            
-        }*/
+
+            int SumNumbersFromMtoN(int N, int M)
+            {
+                if (N < M) return 0;
+                return N + SumNumbersFromMtoN(N - 1, M);
+            }
+
+        }
 
 
 
