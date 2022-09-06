@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 namespace _64_66_68
 {
@@ -16,7 +17,7 @@ namespace _64_66_68
                 case 66:
                     TaskSixtysix();
                     break;
-                case 58:
+                case 68:
                     TaskSixtyeight();
                     break;
                 default:
@@ -80,11 +81,28 @@ namespace _64_66_68
         #endregion
 
         #region Задача 68
+        /*Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+        m = 2, n = 3->A(m, n) = 9*/
+
         static void TaskSixtyeight()
         {
+            Console.WriteLine("Введите неотрицательное число m: ");
+            ulong m = ulong.Parse(Console.ReadLine());
+            Console.WriteLine("Введите неотрицательное число n: ");
+            ulong n = ulong.Parse(Console.ReadLine());
+            if (m >= 0 || n >= 0) AckermanFunction(m, n);
+            else Console.WriteLine("Числа должны быть неотрицательными");
+            ulong result = AckermanFunction(m, n);
+            Console.WriteLine();
+            Console.WriteLine(result);
 
+            ulong AckermanFunction(ulong m, ulong n)
+            {
+                if (m == 0) return (n + 1);
+                if ((m > 0) && (n == 0)) return AckermanFunction(m - 1, 1);
+                else return AckermanFunction(m - 1, AckermanFunction(m, n - 1));
+            }
         }
-
         #endregion
 
     }
